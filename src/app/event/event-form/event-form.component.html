@@ -1,0 +1,52 @@
+<form [formGroup]="form"  novalidate>
+
+  <md-input-container>
+    <input mdInput placeholder="Titulo" name="title" formControlName="title">
+  </md-input-container>
+
+
+  <md-input-container>
+    <input mdInput placeholder="Descripcion" name="description" formControlName="description">
+  </md-input-container>
+
+    
+
+  <md-input-container>
+    <input mdInput type="number" placeholder="Prioridad" name="priority" formControlName="priority">
+  </md-input-container>
+
+    <!--md-input-container>
+    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="value" name =" date" formControlName="date" value="date">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    </md-input-container>
+<md-datepicker #picker [startAt]="startDate" (selectedChanged)="selectedDate($event)"></md-datepicker>
+
+<p>ngModel Value: {{value}}</p>
+
+<p>Date from selectedDate(): {{checkDate}}</p-->
+
+<md-input-container>
+  <input mdInput type="date"  placeholder="seleccione fecha del evento " name="date" formControlName="date">
+</md-input-container>
+
+
+  <table cellspacing="0">
+    <tr>
+      <td>
+        <md-input-container>
+          <input mdInput type="number" placeholder="Latitud" name="latitude" formControlName="latitude">
+        </md-input-container></td>
+      <td>
+        <md-input-container>
+          <input mdInput type="number" placeholder="Longitud" name="longitude" formControlName="longitude">
+        </md-input-container></td>
+    </tr>
+  </table>
+
+  <agm-map [latitude]="form?.value?.latitude" [longitude]="form?.value?.longitude" [zoom]="17" (mapClick)="mapClick($event)">
+    <agm-marker [latitude]="marker?.latitude" [longitude]="marker?.longitude" [markerDraggable]="marker?.isDraggable" (dragEnd)="dragEnd($event)" *ngIf="marker">
+    </agm-marker>
+  </agm-map>
+
+</form>
+

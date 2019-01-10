@@ -1,0 +1,22 @@
+<md-card tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+  <md-card-title>Crear Nuevo Evento</md-card-title>
+  <md-divider></md-divider>
+
+  <md-card-content>
+    <event-form #eventFormComponent></event-form>
+  </md-card-content>
+  <md-divider></md-divider>
+
+  <md-card-actions>
+    <button md-raised-button [disabled]="!eventFormComponent.form.valid" (click)="save(eventFormComponent.form)" color="primary">
+      <md-icon>add</md-icon>
+      nueva categoria
+    </button>
+
+    <button md-raised-button (click)="cancel()">
+      <md-icon color="warn">cancel</md-icon>
+      Cancelar
+    </button>
+  </md-card-actions>
+
+</md-card>
